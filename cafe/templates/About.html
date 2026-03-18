@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Pets Café</title>
+    <link rel="stylesheet" href="{% static 'css\Res style.css' %}">
+    <link rel="icon" type="image/avif" href="{% static 'images/Cafe.avif' %}">
+</head>
+
+<body>
+
+    <section id="About">
+        <h1>About Us</h1>
+    </section>
+
+    <section id="Aboutus">
+        <div class="about-container">
+            <h2>Welcome to Pets Café! 🐾☕️</h2>
+
+            <p>Hello, I'm <strong>Harideepak</strong>, the founder and CEO of <strong>Pets Café</strong> — a place where passion for pets meets great food! Located in the heart of <strong>Tuticorin</strong>.</p>
+
+            <p>Pets Café is the perfect spot to relax, unwind, and enjoy some delicious snacks while spending time with our adorable furry friends. Whether you're a pet owner or simply an animal lover, we invite you to come in, have a snack, and make new four-legged friends!</p>
+
+            <p>At Pets Café, we believe in creating a warm, welcoming atmosphere for both humans and pets. Our café is not just a place to grab a bite — it’s a sanctuary where you can interact with cute pets and experience the joy of having a pet in your life, even if just for a while.</p>
+
+            <p>We offer a variety of snack starters to satisfy your cravings — perfect for enjoying with a cup of coffee or tea. From crispy snacks to savory bites, there’s something for everyone. And, of course, our pets are here to keep you company while you indulge in your favorites.</p>
+
+            <p>Join us for a relaxing time with your pet or meet some new friends at Pets Café — where pets, snacks, and smiles come together!</p>
+
+            <ul class="contact-list">
+                <li><strong>📞 Phone:</strong> <a href="tel:+918056867639">+91 80568 67639</a></li>
+                <li><strong>📧 Email:</strong> <a href="mailto:harideepak.s10@gmail.com">harideepak.s10@gmail.com</a></li>
+            </ul>
+
+            <img src="{% static 'images\cafe.avif' %}" alt="Pets Café" class="about-image"><br>
+
+            <a href="{% url 'index' %}">
+                <button class="btn">Back</button>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>

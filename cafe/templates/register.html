@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{% static 'css\Res style.css' %}">
+    <link rel="icon" type="image/avif" href="{% static 'images/Cafe.avif' %}">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0" >
+    <title>Pets Cafe</title>
+    <style>
+    .page-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(244, 193, 149);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Registration Box */
+.register-box {
+    background: #ffffff74;
+    border: 2px solid black;
+    padding: 40px 50px;
+    text-align: center;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+.register-box h1 {
+    margin-bottom: 25px;
+}
+
+/* Input fields */
+.register-box input[type="text"],
+.register-box input[type="email"],
+.register-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background: #ffffff74;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit button */
+.register-box input[type="submit"] {
+    background-color: #b56b35;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.register-box input[type="submit"]:hover {
+   background-color: #8c4e22;
+}
+
+/* Alerts */
+#alert {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Info text */
+#info {
+    margin-top: 15px;
+}
+
+#info a {
+    color: blue;
+    text-decoration: none;
+}
+
+#info a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+
+</head>
+<body>
+
+<div class="page-wrapper">
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+
+        <div class="register-box">
+            <h1>REGISTER</h1>
+
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <input type="text" name="username" placeholder="User Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password1" placeholder="Password">
+            <input type="password" name="password2" placeholder="Confirm Password">
+
+            <input type="submit" value="Register">
+
+            {% for message in messages %}
+                <p id="alert">{{ message }}</p>
+            {% endfor %}
+
+            <p id="info">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+
+    </form>
+</div>
+
+</body>
+
+</html>

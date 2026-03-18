@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Café | Feedback</title>
+    
+    <link rel="icon" type="image/avif" href="{% static 'images/Cafe.avif' %}">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{% static 'css\Res style.css' %}">
+</head>
+<body>
+<center>
+    <div id="bgfeed">
+        <h1>Feedback Form 🐶🐱</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+
+        <footer>
+            <p>Thank you for visiting Pets Café! 🐾</p>
+        </footer>
+
+        <a href="{% url 'index' %}">
+            <button class="btn">Home</button>
+        </a>
+    </div>
+</center>
+</body>
+</html>

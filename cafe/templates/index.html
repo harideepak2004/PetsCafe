@@ -1,0 +1,90 @@
+{% load static %}
+<!-- Filename - index.html-->
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{% static 'css\Res style.css' %}">
+    <link rel="icon" type="image/avif" href="{% static 'images/Cafe.avif' %}">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0" >
+     <title>Pets Cafe</title>
+</head>
+<body>
+    <header>
+        <h1 id="top">Pets Cafe</h1>
+    </header>
+    <hr>
+
+<nav id="navbar">
+    <h1 id="top1">Cafe for Pet Lovers</h1>
+
+    <!-- Hamburger Menu for Small Screens -->
+    <div id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul id="navcontent">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'About' %}">About</a></li>
+        <li><a href="{% url 'Menu' %}">Menu</a></li>
+        {% if user.is_authenticated %}
+        <li id="hello">Hello {{user.first_name}}</li>
+        <li><a href="{% url 'logout' %}">logout</a></li>
+        {% else %}
+        <li><a href="{% url 'register' %}">Register</a></li>
+        <li><a href="{% url 'login' %}">login</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+
+
+    <div id="container1">
+        <div id="row1">
+            Welcome to Pets Cafe
+        </div><a href="{% url 'Menu' %}">
+        <button class="btn">ORDER NOW</button></a>
+        <div id="container3">
+            <div id="row2"><a href="{% url 'Menu' %}">
+                <button class="btn">Prices</button></a>
+            </div>
+            <div id="row3"><a href="{% url 'Menu' %}">
+                <button class="btn">Prices</button></a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h1 id="top3">Snack and Beverages</h1>
+    <div id="container4">
+        <div id="row4"><a href="{% url 'Menu' %}">
+            <button class="btn">ORDER NOW</button></a>
+        </div>
+        <div id="row5"><a href="{% url 'Menu' %}">
+            <button class="btn">ORDER NOW</button></a>
+        </div>
+        <div id="row6"><a href="{% url 'Menu' %}">
+            <button class="btn">ORDER NOW</button></a>
+        </div>
+    </div>
+    <footer>
+        <div >
+            <a href="{% url 'FeedBack' %}">
+            <button class="btn">FeedBack</button></a>
+        </div>
+        
+        Copyright © 2022-2025 Petscafe.
+        All Rights are reserved</footer>
+</body>
+
+<!-- JavaScript for Toggle -->
+<script>
+    const toggleButton = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('navcontent');
+
+    toggleButton.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+</script>
+</html>

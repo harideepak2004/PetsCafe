@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FeedBack Submitted</title>
+    <link rel="stylesheet" href="{% static 'css/feedback_success.css' %}">
+    <link rel="icon" type="image/avif" href="{% static 'images/Cafe.avif' %}">
+</head>
+<style>/* Body Styling */
+body {
+    background: #fff5e6; /* Soft cafe-like background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    color: #4a3c31; /* Dark brown text */
+}
+
+/* Heading */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #6b4226; /* Rich brown */
+}
+
+/* Paragraph */
+p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #5a4030;
+}
+
+/* Buttons */
+button {
+    background-color: #f9a826; /* Cafe orange */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #d98812; /* Darker on hover */
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Links wrapping buttons */
+a {
+    text-decoration: none;
+}
+</style>
+<body>
+    <h1>✅ Thank you for your feedback!</h1>
+    <p>We appreciate your time and thoughts about our café 🐾</p>
+    <a href="{% url 'FeedBack' %}"><button>Submit Another Feedback</button></a>
+    <a href="{% url 'index' %}"><button>Go Home</button></a>
+</body>
+</html>
+

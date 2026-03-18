@@ -1,0 +1,660 @@
+
+/* =========================================================
+   PETS CAFÉ WEBSITE - MAIN STYLE SHEET
+   Author: You ❤️
+   Last Updated: 2025
+   ========================================================= */
+
+/* -------------------- GLOBAL STYLES -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Ubuntu Mono', monospace;
+    background-color: #fffaf3;
+    color: #222;
+    line-height: 1.5;
+}
+
+/* -------------------- HEADER -------------------- */
+#top {
+    color: rgb(245, 10, 10);
+    text-align: center;
+    font-size: 46px;
+    margin-top: 20px;
+}
+
+#top1 {
+    text-align: center;
+    color: #000;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+/* ---------------- NAVBAR BASE ---------------- */
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: gray;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+#hello{
+  color: white;
+}
+
+/* Navbar Title */
+#top1 {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 20px;
+    color: white;
+}
+
+/* Navigation Links */
+#navcontent {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    transition: max-height 0.3s ease;
+}
+
+#navcontent li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#navcontent li a:hover {
+    background-color: #ee570071;
+}
+
+/* Hamburger Menu Button */
+#menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    position: absolute;   /* Move to top-right */
+    top: 10px;
+    right: 20px;
+    z-index: 1000;        /* Ensure it stays above nav links */
+}
+
+#menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Navigation Links */
+#navcontent {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    transition: max-height 0.3s ease;
+    z-index: 500;  /* Ensure nav links are below the toggle */
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+    #navcontent {
+        flex-direction: column;
+        position: absolute;
+        top: 50px;  /* Below navbar */
+        right: 0;
+        background-color: gray;
+        text-align: center;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    #navcontent.show {
+        max-height: 500px; /* adjust height as needed */
+    }
+
+    #menu-toggle {
+        display: flex;
+    }
+}
+
+
+/* -------------------- HERO SECTION -------------------- */
+#container1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 60vh;
+    width: 100%;
+    overflow: hidden;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+/* Background Image Overlay */
+#container1::before {
+    content: '';
+    background: url('../images/dogg.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.85;
+    z-index: -1;
+}
+
+/* Hero Text */
+#row1 {
+    margin-top: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+
+
+/* -------------------- FEATURE CARDS (Prices / Specials) -------------------- */
+#container3 {
+    display: flex;
+    justify-content: center;
+    gap: 550px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+/* Individual Cards */
+#row2, #row3 {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border-radius: 30px;
+    box-shadow: 2px 7px 16px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Card Backgrounds */
+#row2::before {
+    content: '';
+    background: url('../images/menu2.webp') no-repeat center center/cover;
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    z-index: -1;
+}
+
+#row3::before {
+    content: '';
+    background: url('../images/menu3.jpg') no-repeat center center/cover;
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    z-index: -1;
+}
+
+/* -------------------- SNACK SECTION -------------------- */
+#top3 {
+    text-align: center;
+    color: red;
+    font-size: 2rem;
+    margin-top: 40px;
+}
+
+#container4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 40px;
+}
+
+/* Snack Cards */
+#container4 > div {
+    height: 350px;
+    border: 2px solid black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Background Images */
+#row4 {
+    background: url('../images/pups.jpeg') no-repeat center center/cover;
+}
+
+#row5 {
+    background: url('../images/donut.jpg') no-repeat center center/cover;
+}
+
+#row6 {
+    background: url('../images/san.avif') no-repeat center center/cover;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-top: 2px solid #ddd;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+footer .btn {
+    margin-bottom: 10px;
+}
+
+/* -------------------- RESPONSIVE DESIGN -------------------- */
+@media (max-width: 768px) {
+    /* Navbar Adjustments */
+    #navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #blue {
+        margin: 10px 0;
+    }
+
+    /* Hero Section */
+    #container1 {
+        height: 50vh;
+    }
+
+    /* Button Scaling */
+    .btn {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    /* Card Adjustments */
+    #container3 {
+        gap: 30px;
+    }
+
+    #container4 {
+        grid-template-columns: 1fr;
+        margin: 20px;
+    }
+}
+
+/* -------------------- SMALL SCREENS -------------------- */
+@media (max-width: 480px) {
+    #top {
+        font-size: 36px;
+    }
+
+    #top1 {
+        font-size: 18px;
+    }
+
+    #navcontent li a {
+        font-size: 18px;
+    }
+}
+
+
+
+
+/* about codes are here */
+/* About Page Styling */
+#About {
+    margin-top: 10px;
+    background-color: gray;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Ubuntu Mono', monospace;
+    border-radius: 5px;
+}
+
+#Aboutus {
+    background-color: rgb(244, 193, 149);
+    font-family: 'Ubuntu Mono', monospace;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-container h2 {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.about-container p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.contact-list li {
+    margin-bottom: 10px;
+}
+
+.contact-list a {
+    text-decoration: none;
+    color: darkblue;
+}
+
+.contact-list a:hover {
+    text-decoration: underline;
+}
+
+.about-image {
+    width: 400px;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    #About {
+        font-size: 20px;
+    }
+
+    .about-container p {
+        font-size: 18px;
+    }
+
+    .about-image {
+        width: 90%;
+    }
+}
+
+
+
+/* menu codes are here */
+/* General Styles */
+
+
+#menubg {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;    /* Centers content vertically */
+    flex-direction: column; /* Stack image and form vertically */
+    padding: 50px 20px;
+    background-color: rgb(244, 193, 149);
+    min-height: 100vh;      /* Full viewport height */
+    box-sizing: border-box;
+}
+
+
+.menu-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.coffee-img {
+  width: 400px;   /* make this bigger */
+  height: auto;
+}
+
+.pizza-img {
+    width: 440px;
+    height: auto;
+}
+
+.snack-img {
+  width: 380px;
+  height: auto;
+}
+
+
+#menuform {
+    width: 100%;
+    max-width: 500px;  /* Limits form width */
+}
+
+#menuform table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#menuform td {
+    padding: 10px 15px;
+}
+
+#menuform input,
+#menuform select {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #ffffff74;
+    border: 1px solid #ccc;
+}
+
+
+/* Align radio options in a straight line */
+.radio-options {
+    display: flex;               /* Arrange side by side */
+    align-items: center;         /* Vertically center them */
+    gap: 20px;                   /* Space between options */
+}
+
+.radio-options label {
+    display: flex;
+    align-items: center;         /* Keeps circle & text aligned */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.radio-options input[type="radio"] {
+    margin-right: 6px;           /* Space between button and text */
+}
+
+
+/* Media Queries */
+
+/* Tablets & small laptops */
+@media only screen and (max-width: 768px) {
+    #menubg {
+        padding: 20px;
+    }
+
+    #menubg img {
+        width: 80%;
+    }
+
+    #menuform {
+        max-width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Mobile screens */
+@media only screen and (max-width: 480px) {
+    #menuform input,
+    #menuform select,
+    .btn {
+        font-size: 16px;
+    }
+}
+
+
+/* feedback codes are here */
+/* === General Reset === */
+center{
+    background: rgb(244, 193, 149);;
+}
+
+/* === Main Container === */
+#bgfeed {
+    background: rgba(255, 255, 255, 0.225);
+    backdrop-filter: blur(6px);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* === Header === */
+h1 {
+    text-align: center;
+    color: #5a3825;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* === Form Layout === */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* === Label + Input Styling === */
+.form-shape {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    color: #3a2d1f;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+select,
+textarea {
+    background: #ffffff74;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #b56b35;
+    box-shadow: 0 0 5px rgba(181, 107, 53, 0.5);
+}
+
+/* === Radio Section === */
+#radio {
+    color: #3a2d1f;
+    font-weight: 600;
+}
+
+#radio input {
+    margin-left: 10px;
+}
+
+
+
+/* Target only the form buttons specifically */
+#menuform input[type="submit"],
+#menuform input[type="reset"] {
+    width: auto;              /* Don’t stretch full width */
+    padding: 5px 12px;        /* Smaller padding */
+    font-size: 14px;          /* Smaller text */
+    border-radius: 5px;       /* Slightly rounded corners */
+    border: 1px solid black;  /* Thin border */
+    cursor: pointer;
+    margin: 0 6px;            /* Space between buttons */
+    transition: 0.3s;
+    display: inline-block;    /* Prevents weird table stretching */
+}
+
+
+
+
+/* === Buttons === */
+input[type="submit"],
+input[type="reset"],
+.btn {
+    background-color: #b56b35;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+.btn:hover {
+    background-color: #8c4e22;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    color: #4b3a2b;
+}
+
+/* === Home Button === */
+a .btn {
+    display: block;
+    margin: 20px auto 0;
+}
+
+/* === Responsive Design === */
+@media (max-width: 480px) {
+    #bgfeed {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\Res style.css' %}">
+    <link rel="icon" type="image/avif" href="{% static 'images/Cafe.avif' %}">
+    <title>Pets Cafe</title>
+</head>
+<body>
+
+<div id="menubg">
+
+<div class="menu-images">
+  <img src="{% static 'images/menu2.webp' %}" alt="Snack Menu" class="coffee-img">
+  <img src="{% static 'images/menu3.jpg' %}" alt="Snack Menu" class="snack-img">
+  <img src="{% static 'images/menu4.webp' %}" alt="Snack Menu" class="pizza-img">
+</div>
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+
+
+    <div>
+        <a href="{% url 'index' %}">
+            <button class="btn">Home</button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
