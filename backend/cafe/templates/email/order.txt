@@ -1,0 +1,9 @@
+{{ headline }}
+
+Pets Cafe · Order #{{ order.pk }} · {{ order.get_order_type_display }}{% if order.table_number %} · Table {{ order.table_number }}{% endif %}
+{% for item in items %}
+{{ item.quantity }} x {{ item.name }} — Rs. {{ item.line_total }}{% endfor %}
+
+Total: Rs. {{ order.total }}
+
+Track your order: {{ frontend_url }}/orders

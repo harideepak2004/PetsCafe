@@ -1,0 +1,8 @@
+Your visit to Pets Cafe is booked!
+
+Date:   {{ booking.date|date:"D, d M Y" }}
+Time:   {{ slot }} (1 hour)
+Guests: {{ booking.guests }}
+Pets:   {{ booking.get_pet_preference_display }}
+
+Manage your booking: {{ frontend_url }}/bookings
