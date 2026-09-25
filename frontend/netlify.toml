@@ -2,6 +2,10 @@
   command = "npm run build"
   publish = "dist"
 
+# Vite 7 needs Node 20.19+ (older Netlify sites default to Node 18)
+[build.environment]
+  NODE_VERSION = "22"
+
 # Client-side routing: send every path to index.html
 [[redirects]]
   from = "/*"
