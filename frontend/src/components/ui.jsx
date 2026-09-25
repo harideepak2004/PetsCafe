@@ -1,5 +1,5 @@
-import { useEffect, useId } from "react";
-import { AlertTriangle, Loader2, X } from "lucide-react";
+import { useEffect, useId, useState } from "react";
+import { AlertTriangle, Eye, EyeOff, Loader2, X } from "lucide-react";
 
 export function Button({ variant = "primary", size, loading, icon: Icon, children, className = "", ...props }) {
   return (
@@ -16,12 +16,32 @@ export function Button({ variant = "primary", size, loading, icon: Icon, childre
 
 export function Field({ label, error, hint, as = "input", className = "", ...props }) {
   const id = useId();
-  const Tag = as;
+  const Tag = as === "input" && props.type === "password" ? PasswordInput : as;
   return (
     <div className={`field ${error ? "has-error" : ""} ${className}`}>
       {label && <label htmlFor={id}>{label}</label>}
       <Tag id={id} aria-invalid={!!error} aria-describedby={error || hint ? `${id}-msg` : undefined} {...props} />
       {(error || hint) && <small id={`${id}-msg`} className={error ? "error-text" : "hint"}>{error || hint}</small>}
+    </div>
+  );
+}
+
+/** Password box with a show/hide toggle. */
+function PasswordInput(props) {
+  const [visible, setVisible] = useState(false);
+  return (
+    <div className="pw-wrap">
+      <input {...props} type={visible ? "text" : "password"} />
+      <button
+        type="button"
+        className="pw-toggle"
+        onClick={() => setVisible((v) => !v)}
+        aria-label={visible ? "Hide password" : "Show password"}
+        aria-pressed={visible}
+        title={visible ? "Hide password" : "Show password"}
+      >
+        {visible ? <EyeOff size={18} /> : <Eye size={18} />}
+      </button>
     </div>
   );
 }
